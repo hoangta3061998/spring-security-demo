@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog App</title>
+</head>
+<body>
+<h1>List Categories</h1>
+<a href="/category/create">Create new Block</a>
+<p th:if="${message}" th:text="${message}"></p>
+<table border="1px">
+    <tr>
+        <td>Name</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    <th:block th:each="category : ${categories}">
+        <tr>
+            <td th:text="${category.name}"></td>
+            <td><a th:href="@{/category/edit/__${category.getId()}__}">Edit</a></td>
+            <td><a th:href="@{/category/delete/__${category.getId()}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

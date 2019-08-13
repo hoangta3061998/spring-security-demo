@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog App</title>
+</head>
+<body>
+<h1>Delete Category</h1>
+<form th:action="@{/category/delete}" th:object="${category}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <p>Name:<input type="text" th:field="*{name}"></p>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

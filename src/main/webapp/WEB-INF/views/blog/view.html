@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog App</title>
+</head>
+<body>
+<a href="/blog/home">Back</a>
+<div th:object="${blog}">
+    <h5><a th:text="*{title}"></a></h5>
+    <h5><a th:text="*{category.name}"></a></h5>
+    <p th:text="*{content}"></p>
+</div>
+</body>
+</html>

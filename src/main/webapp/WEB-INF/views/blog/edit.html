@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Application</title>
+</head>
+<body>
+<h1>Edit blog</h1>
+<a href="/blog/home">Back</a>
+<p th:if="${message}" th:text="${message}"></p>
+<form th:object="${blog}" th:action="@{/blog/edit}" method="post">
+    <p><input type="hidden" th:field="*{id}"></p>
+    <p>Title:<input type="text" th:field="*{title}"></p>
+    <p>Content:<input type="text" th:field="*{content}"></p>
+    <input type="text" th:field="*{createdAt}">
+    <p>Category:
+
+        <select th:field="*{category}">
+            <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+        </select>
+    </p>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
