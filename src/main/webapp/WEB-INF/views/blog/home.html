@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
     <title>Blog App</title>
 </head>
+
 <body>
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    <b>Welcome!<span sec:authentication="principal.username"></span></b>-->
+
 <h1>List Blogs</h1>
 <a href="/blog/create">Create new Block</a>
 <form method="post" th:action="@{/blog/search}">
@@ -42,5 +47,6 @@
     <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
     <a th:href="@{'/blog/home'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
 </div>
+<!--</div>-->
 </body>
 </html>
