@@ -17,4 +17,6 @@ public interface BlogService {
     Page<Blog> findAllByTitleContaining(String title, Pageable pageable);
     Page<Blog> findAll(Pageable pageable);
     Iterable<Blog> findAllByCategory(Category category);
+    Page<Blog> findAllSummary(Pageable pageable);
+    Page<Blog> findByCategory(Category category , Pageable pageable);
 }
